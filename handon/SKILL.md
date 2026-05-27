@@ -10,12 +10,13 @@ Search for handoff files and load one to resume the conversation.
 
 Find the latest handoff file by modification time and load it:
 
-1. Search for handoff files in the temp directory:
-   - **macOS/Linux**: `/tmp/handoff-*.md`
-   - **Windows**: `$env:TEMP\handoff-*.md`
-2. Pick the most recently modified file.
-3. Read it and present the full context so the agent can continue where the previous session left off.
-4. If no handoff files are found, report that and suggest running `/handoff` first.
+1. Check these paths in order (stop at the first hit):
+   - **Windows**: `$env:TEMP\handoff-latest.md`, then `$env:TEMP\handoff-*.md`
+   - **macOS/Linux**: `/tmp/handoff-latest.md`, then `/tmp/handoff-*.md`
+2. As a fallback, if nothing matched above, also search the legacy `tmp*.md` pattern and filter to files containing a handoff header (`# Handoff:`) in the first 5 lines.
+3. Pick the most recently modified file among all matches.
+4. Read it and present the full context so the agent can continue where the previous session left off.
+5. If no handoff files are found, report that and suggest running `/handoff` first.
 
 ## With a filename argument
 
