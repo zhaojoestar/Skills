@@ -1,0 +1,7 @@
+# 隐私：config.json 包含真实 API key，绝不提交
+config.json
+# Python 缓存
+__pycache__/
+*.pyc
+# 临时文件
+*.tmp

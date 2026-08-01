@@ -1,0 +1,5 @@
+{
+  "api_key": "sk-在此填入你的 Moonshot API key",
+  "model": "kimi-k2.5",
+  "base_url": "https://api.moonshot.cn/v1"
+}
